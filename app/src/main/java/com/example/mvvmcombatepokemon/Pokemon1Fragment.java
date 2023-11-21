@@ -12,17 +12,30 @@ import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.mvvmcombatepokemon.databinding.FragmentPokemon1Binding;
 
+import org.w3c.dom.Text;
+
 public class Pokemon1Fragment extends Fragment {
     private @NonNull FragmentPokemon1Binding binding;
+
+    Button botonValidar;
+    Button guardar;
+    TextView hp1;
+    TextView nombre1;
+    TextView ataque1;
+    TextView defensa1;
+    TextView atEsp1;
+    TextView defEsp1;
     Pokemon pokemon;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return (binding = FragmentPokemon1Binding.inflate(inflater, container, false)).getRoot();
+        return inflater.inflate(R.layout.fragment_pokemon1, container, false);
     }
 
     @Override
@@ -30,55 +43,62 @@ public class Pokemon1Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
-
-        binding.botonValidar.setOnClickListener(v -> {
+        botonValidar = view.findViewById(R.id.botonValidar);
+        guardar = view.findViewById(R.id.botonGuardarPok1);
+        botonValidar.setOnClickListener(v -> {
             boolean err = false;
 
             String nombre;
+            nombre1 = view.findViewById(R.id.nombre1);
             int hp = 0;
+            hp1 = view.findViewById(R.id.hp1);
             int ataque = 0;
+            ataque1 = view.findViewById(R.id.ataque1);
             int defensa = 0;
+            defensa1 = view.findViewById(R.id.defensa1);
             int ataqueEsp = 0;
+            atEsp1 = view.findViewById(R.id.ataqueEsp1);
             int defensaEsp = 0;
+            defEsp1 = view.findViewById(R.id.defEsp1);
 
             //Nombre del pokemon
-            nombre = binding.nombre1.getText().toString();
+            nombre = nombre1.toString();
 
             //HP del pokemon, salta la excepción en caso de no ser un numero
             try {
-                hp = Integer.parseInt(binding.hp1.getText().toString());
+                hp = Integer.parseInt(hp1.toString());
             } catch (NumberFormatException ex) {
-                binding.hp1.setError("Hay que introducir un número");
+                hp1.setError("Hay que introducir un número");
                 err = true;
             }
 
             //Ataque del pokemon, salta la excepción en caso de no ser un numero
             try {
-                ataque = Integer.parseInt(binding.ataque1.getText().toString());
+                ataque = Integer.parseInt(ataque1.toString());
             } catch (NumberFormatException ex) {
-                binding.ataque1.setError("Hay que introducir un número");
+                ataque1.setError("Hay que introducir un número");
                 err = true;
             }
             //Defensa del pokemon, salta la excepción en caso de no ser un numero
             try {
-                defensa = Integer.parseInt(binding.defensa1.getText().toString());
+                defensa = Integer.parseInt(defensa1.toString());
             } catch (NumberFormatException ex) {
-                binding.defensa1.setError("Hay que introducir un número");
+                defensa1.setError("Hay que introducir un número");
                 err = true;
             }
             //Ataque especial del pokemon, salta la excepción en caso de no ser un numero
             try {
-                ataqueEsp = Integer.parseInt(binding.ataqueEsp1.getText().toString());
+                ataqueEsp = Integer.parseInt(atEsp1.toString());
             } catch (NumberFormatException ex) {
-                binding.ataqueEsp1.setError("Hay que introducir un número");
+                atEsp1.setError("Hay que introducir un número");
                 err = true;
             }
 
             //Defensa especial del pokemon, salta la excepción en caso de no ser un numero
             try {
-                defensaEsp = Integer.parseInt(binding.defEsp1.getText().toString());
+                defensaEsp = Integer.parseInt(defEsp1.toString());
             } catch (NumberFormatException ex) {
-                binding.defEsp1.setError("Hay que introducir un número");
+                defEsp1.setError("Hay que introducir un número");
                 err = true;
             }
 
@@ -89,53 +109,53 @@ public class Pokemon1Fragment extends Fragment {
 
         pokemonViewModel.pValidado.observe(getViewLifecycleOwner(), validado -> {
             if (validado) {
-                binding.botonGuardarPok1.setEnabled(true);
+                guardar.setEnabled(true);
             }
         });
 
-        binding.nombre1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.nombre1) {
+        nombre1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.nombre1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.hp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.hp1) {
+        hp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.hp1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.ataque1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.ataque1) {
+        ataque1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.ataque1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.defensa1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.defensa1) {
+        defensa1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.defensa1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.ataqueEsp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.ataqueEsp1) {
+        atEsp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.ataqueEsp1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.defEsp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.defEsp1) {
+        defEsp1.addTextChangedListener(new TextChangedListener<EditText>((EditText) binding.defEsp1) {
             @Override
             public void onTextChanged(EditText target, Editable s) {
-                binding.botonGuardarPok1.setEnabled(false);
+                guardar.setEnabled(false);
             }
         });
 
-        binding.botonGuardarPok1.setOnClickListener(l -> {
+        guardar.setOnClickListener(l -> {
             PokemonViewModel.listaPokemon.add(pokemon);
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setMessage("Se ha guardado el " + pokemon.getNombre());
