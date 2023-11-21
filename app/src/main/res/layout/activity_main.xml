@@ -1,76 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/piplup"
-        android:layout_width="193dp"
-        android:layout_height="209dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="268dp"
-        android:rotation="0"
-        android:rotationY="180"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_piplup" />
+    <androidx.fragment.app.FragmentContainerView
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
 
-    <ImageView
-        android:id="@+id/pachirisu"
-        android:layout_width="193dp"
-        android:layout_height="209dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="140dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_pachirisu" />
-
-    <ImageView
-        android:id="@+id/eevee"
-        android:layout_width="193dp"
-        android:layout_height="209dp"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="392dp"
-        android:rotationY="180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_eevee" />
-
-    <ImageView
-        android:id="@+id/psyduck"
-        android:layout_width="193dp"
-        android:layout_height="209dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="176dp"
-        android:rotationY="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_psyduck" />
-
-    <ImageView
-        android:id="@+id/pokebola"
-        android:layout_width="144dp"
-        android:layout_height="208dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"
-        app:srcCompat="@drawable/ic_pokebola" />
-
-    <Button
-        android:id="@+id/buttonStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="105dp"
-        android:backgroundTint="#FF0000"
-        android:text="COMENZAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

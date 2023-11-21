@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pokemon1Fragment">
+
+    <Button
+        android:id="@+id/botonGuardarPok1"
+        android:layout_width="120dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="SIGUIENTE"
+        android:backgroundTint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName5"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="0-999"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName4" />
+
+    <EditText
+        android:id="@+id/editTextName4"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="0-999"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName3" />
+
+    <EditText
+        android:id="@+id/editTextName3"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="0-999"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName2" />
+
+    <EditText
+        android:id="@+id/editTextName2"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="0-999"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="0-999"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextName1" />
+
+    <TextView
+        android:id="@+id/nombre1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:text="NOMBRE"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName1"
+        android:layout_width="209dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:ems="10"
+        android:hint="Pikachu"
+        android:inputType="text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:text="HP"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre1" />
+
+    <TextView
+        android:id="@+id/ataque1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:text="ATAQUE"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hp1" />
+
+    <TextView
+        android:id="@+id/defensa1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:text="DEFENSA"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ataque1" />
+
+    <TextView
+        android:id="@+id/ataqueEsp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="45dp"
+        android:text="ATAQUE\nESPECIAL"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defensa1" />
+
+    <TextView
+        android:id="@+id/defEsp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:text="DEFENSA\nESPECIAL"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ataqueEsp1" />
+
+    <Button
+        android:id="@+id/botonValidar"
+        android:layout_width="120dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="VALIDAR"
+        android:backgroundTint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
