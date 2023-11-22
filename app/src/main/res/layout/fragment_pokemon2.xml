@@ -5,10 +5,10 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pokemon1Fragment">
+    tools:context=".Pokemon2Fragment">
 
     <Button
-        android:id="@+id/botonGuardarPok1"
+        android:id="@+id/botonGuardarPok2"
         android:layout_width="120dp"
         android:layout_height="61dp"
         android:layout_marginEnd="40dp"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/etdefEsp1"
+        android:id="@+id/etdefEsp2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="50dp"
@@ -29,10 +29,10 @@
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etatEsp1" />
+        app:layout_constraintTop_toBottomOf="@+id/etatEsp2" />
 
     <EditText
-        android:id="@+id/etatEsp1"
+        android:id="@+id/etatEsp2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="45dp"
@@ -42,10 +42,10 @@
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etdefensa1" />
+        app:layout_constraintTop_toBottomOf="@+id/etdefensa2" />
 
     <EditText
-        android:id="@+id/etdefensa1"
+        android:id="@+id/etdefensa2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
@@ -55,10 +55,10 @@
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etataque1" />
+        app:layout_constraintTop_toBottomOf="@+id/etataque2" />
 
     <EditText
-        android:id="@+id/etataque1"
+        android:id="@+id/etataque2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
@@ -68,10 +68,10 @@
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ethp1" />
+        app:layout_constraintTop_toBottomOf="@+id/ethp2" />
 
     <EditText
-        android:id="@+id/ethp1"
+        android:id="@+id/ethp2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
@@ -81,10 +81,10 @@
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etnombre1" />
+        app:layout_constraintTop_toBottomOf="@+id/etnombre2" />
 
     <TextView
-        android:id="@+id/tvnombre1"
+        android:id="@+id/tvnombre2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etnombre1"
+        android:id="@+id/etnombre2"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:layout_marginTop="45dp"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvhp1"
+        android:id="@+id/tvhp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -116,10 +116,10 @@
         android:text="HP"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvnombre1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvnombre2" />
 
     <TextView
-        android:id="@+id/tvataque1"
+        android:id="@+id/tvataque2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -127,10 +127,10 @@
         android:text="ATAQUE"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvhp1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvhp2" />
 
     <TextView
-        android:id="@+id/tvdefensa1"
+        android:id="@+id/tvdefensa2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -138,10 +138,10 @@
         android:text="DEFENSA"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvataque1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvataque2" />
 
     <TextView
-        android:id="@+id/tvataqueEsp1"
+        android:id="@+id/tvataqueEsp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -149,10 +149,10 @@
         android:text="ATAQUE\nESPECIAL"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvdefensa1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvdefensa2" />
 
     <TextView
-        android:id="@+id/tvdefEsp1"
+        android:id="@+id/tvdefEsp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -160,10 +160,10 @@
         android:text="DEFENSA\nESPECIAL"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvataqueEsp1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvataqueEsp2" />
 
     <Button
-        android:id="@+id/botonValidar1"
+        android:id="@+id/botonValidar2"
         android:layout_width="120dp"
         android:layout_height="61dp"
         android:layout_marginStart="40dp"

@@ -18,5 +18,14 @@
         android:id="@+id/pokemon1Fragment"
         android:name="com.example.mvvmcombatepokemon.Pokemon1Fragment"
         android:label="fragment_pokemon1"
-        tools:layout="@layout/fragment_pokemon1" />
+        tools:layout="@layout/fragment_pokemon1" >
+        <action
+            android:id="@+id/action_pokemon1Fragment_to_pokemon2Fragment"
+            app:destination="@id/pokemon2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemon2Fragment"
+        android:name="com.example.mvvmcombatepokemon.Pokemon2Fragment"
+        android:label="fragment_pokemon2"
+        tools:layout="@layout/fragment_pokemon2" />
 </navigation>
