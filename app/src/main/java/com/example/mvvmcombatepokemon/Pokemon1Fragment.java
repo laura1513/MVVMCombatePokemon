@@ -110,6 +110,7 @@ public class Pokemon1Fragment extends Fragment {
             }
         });
 
+
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
