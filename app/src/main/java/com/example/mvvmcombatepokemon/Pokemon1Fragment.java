@@ -48,7 +48,7 @@ public class Pokemon1Fragment extends Fragment {
             String nombre;
             nombre1 = view.findViewById(R.id.etnombre1);
             int hp = 0;
-            hp1 = view.findViewById(R.id.ethp2);
+            hp1 = view.findViewById(R.id.ethp1);
             int ataque = 0;
             ataque1 = view.findViewById(R.id.etataque1);
             int defensa = 0;
@@ -60,10 +60,10 @@ public class Pokemon1Fragment extends Fragment {
 
             //Nombre del pokemon
             nombre = nombre1.toString();
-
+            //
             //HP del pokemon, salta la excepción en caso de no ser un numero
             try {
-                hp = Integer.parseInt(hp1.toString());
+                hp = Integer.parseInt(hp1.getText().toString());
             } catch (NumberFormatException ex) {
                 hp1.setError("Hay que introducir un número");
                 err = true;
