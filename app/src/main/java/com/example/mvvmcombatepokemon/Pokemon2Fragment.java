@@ -8,91 +8,83 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mvvmcombatepokemon.databinding.FragmentPokemon1Binding;
+import com.example.mvvmcombatepokemon.databinding.FragmentPokemon2Binding;
+
 public class Pokemon2Fragment extends Fragment {
-    Button botonValidar;
-    Button guardar;
-    EditText hp2;
-    EditText nombre2;
-    EditText ataque2;
-    EditText defensa2;
-    EditText atEsp2;
-    EditText defEsp2;
-    Pokemon pokemon;
+    private @NonNull FragmentPokemon2Binding binding;
+    private Pokemon pokemon = null;
     NavController navController;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pokemon2, container, false);
+        return (binding = FragmentPokemon2Binding.inflate(inflater, container, false)).getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        final PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
 
-        PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
-        botonValidar = view.findViewById(R.id.botonValidar2);
-        guardar = view.findViewById(R.id.botonGuardarPok1);
-        botonValidar.setOnClickListener(v -> {
+        navController = Navigation.findNavController(view);
+
+        binding.botonValidar2.setOnClickListener(v -> {
             boolean err = false;
 
             String nombre;
-            nombre2 = view.findViewById(R.id.etnombre2);
             int hp = 0;
-            hp2 = view.findViewById(R.id.ethp2);
             int ataque = 0;
-            ataque2 = view.findViewById(R.id.etataque2);
             int defensa = 0;
-            defensa2 = view.findViewById(R.id.etdefensa2);
             int ataqueEsp = 0;
-            atEsp2 = view.findViewById(R.id.etatEsp2);
             int defensaEsp = 0;
-            defEsp2 = view.findViewById(R.id.etdefEsp2);
 
             //Nombre del pokemon
-            nombre = nombre2.toString();
-
+            nombre = binding.etnombre2.getText().toString();
+            //
             //HP del pokemon, salta la excepción en caso de no ser un numero
             try {
-                hp = Integer.parseInt(hp2.toString());
+                hp = Integer.parseInt(binding.ethp2.getText().toString());
             } catch (NumberFormatException ex) {
-                hp2.setError("Hay que introducir un número");
+                binding.ethp2.setError("Hay que introducir un número");
                 err = true;
             }
 
             //Ataque del pokemon, salta la excepción en caso de no ser un numero
             try {
-                ataque = Integer.parseInt(ataque2.toString());
+                ataque = Integer.parseInt(binding.etataque2.getText().toString());
             } catch (NumberFormatException ex) {
-                ataque2.setError("Hay que introducir un número");
+                binding.etataque2.setError("Hay que introducir un número");
                 err = true;
             }
             //Defensa del pokemon, salta la excepción en caso de no ser un numero
             try {
-                defensa = Integer.parseInt(defensa2.toString());
+                defensa = Integer.parseInt(binding.etdefensa2.getText().toString());
             } catch (NumberFormatException ex) {
-                defensa2.setError("Hay que introducir un número");
+                binding.etdefensa2.setError("Hay que introducir un número");
                 err = true;
             }
             //Ataque especial del pokemon, salta la excepción en caso de no ser un numero
             try {
-                ataqueEsp = Integer.parseInt(atEsp2.toString());
+                ataqueEsp = Integer.parseInt(binding.etatEsp2.getText().toString());
             } catch (NumberFormatException ex) {
-                atEsp2.setError("Hay que introducir un número");
+                binding.etatEsp2.setError("Hay que introducir un número");
                 err = true;
             }
 
             //Defensa especial del pokemon, salta la excepción en caso de no ser un numero
             try {
-                defensaEsp = Integer.parseInt(defEsp2.toString());
+                defensaEsp = Integer.parseInt(binding.etdefEsp2.getText().toString());
             } catch (NumberFormatException ex) {
-                defEsp2.setError("Hay que introducir un número");
+                binding.etdefEsp2.setError("Hay que introducir un número");
                 err = true;
             }
 
@@ -103,15 +95,110 @@ public class Pokemon2Fragment extends Fragment {
 
         pokemonViewModel.pValidado.observe(getViewLifecycleOwner(), validado -> {
             if (validado) {
-                guardar.setEnabled(true);
+                binding.botonGuardarPok2.setEnabled(true);
             }
         });
 
-        guardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //navController.navigate(R.id.action_inicioFragment_to_pokemon1Fragment);
+        pokemonViewModel.pokemon.observe(getViewLifecycleOwner(), pokemonV -> pokemon = pokemonV);
+
+        pokemonViewModel.errorNombre.observe(getViewLifecycleOwner(), nombre -> {
+            if (nombre != null) {
+                binding.etnombre2.setError(nombre);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.etnombre2.setError(null);
             }
+        });
+
+        pokemonViewModel.errorHp.observe(getViewLifecycleOwner(), vida -> {
+            if (vida != null) {
+                binding.ethp2.setError(vida);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.ethp2.setError(null);
+            }
+        });
+
+        pokemonViewModel.errorAtaque.observe(getViewLifecycleOwner(), atk -> {
+            if (atk != null) {
+                binding.etataque2.setError(atk);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.etataque2.setError(null);
+            }
+        });
+
+        pokemonViewModel.errorDefensa.observe(getViewLifecycleOwner(), def -> {
+            if (def != null) {
+                binding.etdefensa2.setError(def);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.etdefensa2.setError(null);
+            }
+        });
+
+        pokemonViewModel.errorAtaqueEsp.observe(getViewLifecycleOwner(), atkEsp -> {
+            if (atkEsp != null) {
+                binding.etatEsp2.setError(atkEsp);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.etatEsp2.setError(null);
+            }
+        });
+
+        pokemonViewModel.errorDefensaEsp.observe(getViewLifecycleOwner(), defEsp -> {
+            if (defEsp != null) {
+                binding.etdefEsp2.setError(defEsp);
+                binding.botonGuardarPok2.setEnabled(false);
+            } else {
+                binding.etdefEsp2.setError(null);
+            }
+        });
+        binding.etnombre2.addTextChangedListener(new TextChangedListener<EditText>(binding.etnombre2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.ethp2.addTextChangedListener(new TextChangedListener<EditText>(binding.ethp2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.etataque2.addTextChangedListener(new TextChangedListener<EditText>(binding.etataque2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.etdefensa2.addTextChangedListener(new TextChangedListener<EditText>(binding.etdefensa2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.etatEsp2.addTextChangedListener(new TextChangedListener<EditText>(binding.etatEsp2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.etdefEsp2.addTextChangedListener(new TextChangedListener<EditText>(binding.etdefEsp2) {
+            @Override
+            public void onTextChanged(EditText target, Editable s) {
+                binding.botonGuardarPok2.setEnabled(false);
+            }
+        });
+
+        binding.botonGuardarPok2.setOnClickListener(l -> {
+            PokemonViewModel.listaPokemon.add(pokemon);
+            navController.navigate(R.id.action_pokemon2Fragment_to_combateFragment);
         });
     }
 }

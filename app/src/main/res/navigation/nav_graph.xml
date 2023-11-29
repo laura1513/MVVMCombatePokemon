@@ -27,5 +27,14 @@
         android:id="@+id/pokemon2Fragment"
         android:name="com.example.mvvmcombatepokemon.Pokemon2Fragment"
         android:label="fragment_pokemon2"
-        tools:layout="@layout/fragment_pokemon2" />
+        tools:layout="@layout/fragment_pokemon2" >
+        <action
+            android:id="@+id/action_pokemon2Fragment_to_combateFragment"
+            app:destination="@id/combateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/combateFragment"
+        android:name="com.example.mvvmcombatepokemon.CombateFragment"
+        android:label="fragment_combate"
+        tools:layout="@layout/fragment_combate" />
 </navigation>
